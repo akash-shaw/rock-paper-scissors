@@ -133,6 +133,13 @@ function scaleGame() {
     container.style.top = `${containerTop}px`;
     // Calculate scale based on the original aspect ratio width 
     game.style.transform = `scale(${scale})`; 
+
+    const overlay = document.querySelector(".overlay");
+    overlay.style.cssText = `font-size: ${window.innerHeight*(20/591)}px; top: ${window.innerHeight*(20/591)}px; left: ${window.innerHeight*(20/591)}px`;
+
+    const powerSwitch = document.querySelector(".power-switch");
+    powerSwitch.style.cssText = `font-size: ${window.innerHeight*(40/591)}px; top: ${window.innerHeight*(20/591)}px; left: ${window.innerHeight*(20/591)}px`;
+
 }
  // Scale game on page load 
  window.addEventListener('load', scaleGame); 
