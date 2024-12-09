@@ -110,3 +110,31 @@ buttons.forEach(button=>{
         button.style.cssText = "transform: scale(1);"
     })
 })
+
+const powerSwitch = document.querySelector(".power-switch");
+
+powerSwitch.addEventListener("click", e=>{
+    const checkBox = document.querySelector("#switch");
+    checkBox.checked = !checkBox.checked;
+});
+
+
+
+
+
+function scaleGame() { 
+    const container = document.querySelector('.container'); 
+    const game = document.querySelector('.game'); 
+    const containerWidth = window.innerHeight*(295/591);
+    const containerTop = window.innerHeight*(115/591);
+    const scale = containerWidth / 550; 
+
+    container.style.width = `${containerWidth}px`;
+    container.style.top = `${containerTop}px`;
+    // Calculate scale based on the original aspect ratio width 
+    game.style.transform = `scale(${scale})`; 
+}
+ // Scale game on page load 
+ window.addEventListener('load', scaleGame); 
+ // Scale game whenever the window is 
+ window.addEventListener('resize', scaleGame);

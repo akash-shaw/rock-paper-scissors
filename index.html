@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/eea82aea31.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="game">
-        <div class="heading">Rock, Paper, Scissors</div>
-        <div id="result"><div class="human-result">You: <span></span></div><div class="computer-result">Computer: <span></span></div></div>
-        <div id="status"></div>
-        <div id="btn-container">
-            <button class="btn choice-btn" id="rock">&#9994</button>
-            <button class="btn choice-btn" id="paper">&#9995</button>
-            <button class="btn choice-btn" id="scissors">&#9996</button>
+  <div class="power-switch"><i class="fa-solid fa-power-off"></i></div>
+  <img src="crt-expanded.png" alt="" class="crt-image">
+      <main>
+        <input type="checkbox" id="switch" checked>
+      
+        <div class="container">
+          <div class="screen">
+            <div class="content">
+              <div class="game">
+                <div class="heading">Rock, Paper, Scissors</div>
+                <div id="result"><div class="human-result">You: <span></span></div><div class="computer-result">Computer: <span></span></div></div>
+                <div id="status"></div>
+                <div id="btn-container">
+                    <button class="btn choice-btn" id="rock">&#9994</button>
+                    <button class="btn choice-btn" id="paper">&#9995</button>
+                    <button class="btn choice-btn" id="scissors">&#9996</button>
+                </div>
+                <button class="btn" id="reset"><i class="fa-solid fa-rotate-left"></i></button>
+            </div>
+            </div>
+          </div>
+          <div class="overlay">AV-1</div>
         </div>
-        <button class="btn" id="reset"><i class="fa-solid fa-rotate-left"></i></button>
-    </div>
+      </main>
 </body>
 </html>
