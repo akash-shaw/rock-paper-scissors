@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 updateScore();
+updateStatus();
 
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
@@ -50,8 +51,15 @@ function playGame(humanChoice){
 }
 
 function updateScore(){
-    const result = document.querySelector("#result");
-    result.textContent = `You: ${humanScore}, Computer: ${computerScore}`
+    const humanResult = document.querySelector(".human-result span");
+    const computerResult = document.querySelector(".computer-result span");
+    humanResult.textContent = `${humanScore}`;
+    computerResult.textContent= `${computerScore}`;
+}
+
+function updateStatus(message=""){
+    const statusBox = document.querySelector("#status");
+    statusBox.textContent = `> ${message}`;
 }
 
 function checkWinner(){
@@ -87,11 +95,18 @@ resetBtn.addEventListener("click", resetGame);
 const playerButtons = document.querySelector("#btn-container");
 
 playerButtons.addEventListener("click", (e)=>{
-    console.log(e.target.id);
-    playGame(e.target.id);
+    if(e.target.tagName == "BUTTON"){
+        playGame(e.target.id);
+    }
 });
 
-function updateStatus(message=""){
-    const statusBox = document.querySelector("#status");
-    statusBox.textContent = message;
-}
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(button=>{
+    button.addEventListener("mousedown", e=>{
+        button.style.cssText = "transform: scale(0.9);"
+    })
+    button.addEventListener("mouseup", e=>{
+        button.style.cssText = "transform: scale(1);"
+    })
+})

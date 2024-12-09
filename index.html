@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/eea82aea31.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="result"></div>
-    <div id="status"></div>
-    <div id="btn-container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+    <div class="game">
+        <div class="heading">Rock, Paper, Scissors</div>
+        <div id="result"><div class="human-result">You: <span></span></div><div class="computer-result">Computer: <span></span></div></div>
+        <div id="status"></div>
+        <div id="btn-container">
+            <button class="btn choice-btn" id="rock">&#9994</button>
+            <button class="btn choice-btn" id="paper">&#9995</button>
+            <button class="btn choice-btn" id="scissors">&#9996</button>
+        </div>
+        <button class="btn" id="reset"><i class="fa-solid fa-rotate-left"></i></button>
     </div>
-    <button id="reset">reset</button>
 </body>
 </html>
