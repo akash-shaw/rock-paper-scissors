@@ -116,6 +116,9 @@ const powerSwitch = document.querySelector(".power-switch");
 powerSwitch.addEventListener("click", e=>{
     const checkBox = document.querySelector("#switch");
     checkBox.checked = !checkBox.checked;
+
+    const powerLED = document.querySelector(".power-led");
+    powerLED.classList.toggle("off");
 });
 
 
@@ -139,6 +142,9 @@ function scaleGame() {
 
     const powerSwitch = document.querySelector(".power-switch");
     powerSwitch.style.cssText = `font-size: ${window.innerHeight*(20/591)}px; top: ${window.innerHeight*(350/591)}px; left: ${(window.innerWidth/2) + (window.innerHeight*(125/591))}px`;
+
+    const powerLED = document.querySelector(".power-led");
+    powerLED.style.cssText = `font-size: ${window.innerHeight*(40/591)}px; top: ${window.innerHeight*(328/591)}px; left: ${(window.innerWidth/2) + (window.innerHeight*(148/591))}px`;
 }
  // Scale game on page load 
  window.addEventListener('load', scaleGame); 
