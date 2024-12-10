@@ -390,6 +390,14 @@ body {
   flex: 1 0 75px;
   border-radius: 10px;
   font-size: 50px;
+  display: grid;
+  place-items: center;
+}
+
+.choice-btn img{
+  height: 55px;
+  margin: 10px;
+  filter: brightness(0.8) contrast(150%) drop-shadow(4px 4px 10px rgb(0,0,0,0.5));
 }
 
 .btn {
@@ -410,4 +418,5 @@ body {
   width: 50px;
   font-size: 25px;
   color: white;
+  text-shadow: 3px 3px 10px rgb(0, 0, 0, 0.5);
 }
