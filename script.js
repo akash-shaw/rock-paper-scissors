@@ -161,7 +161,7 @@ powerSwitch.addEventListener("click", e=>{
     const switchOnSound = new Audio("media/switchon.mp3");
     const switchOffSound = new Audio("media/switchoff.mp3");
     checkBox.checked = !checkBox.checked;
-    powerLED.classList.toggle("off");
+    powerLED.classList.toggle("on");
     if(checkBox.checked){
         switchOnSound.play();
     }
