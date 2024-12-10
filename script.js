@@ -30,7 +30,7 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     let isHumanWinner;
     if (computerChoice == humanChoice) {
-        updateStatus(`You both lost! ${humanChoice} won.`);
+        updateStatus(`Both of you lost! ${humanChoice} won`);
         return;
     }
     else if (humanChoice == "rock") {
@@ -106,13 +106,13 @@ function checkWinner() {
     if (humanScore == 5) {
         const winAudio = new Audio("media/win.mp3");
         winAudio.play();
-        updateStatus("You Won the Season!");
+        updateStatus("You Won the Game!");
         disablePlayButtons();
     }
     else if (computerScore == 5) {
         const loseAudio = new Audio("media/lose.mp3");
         loseAudio.play();
-        updateStatus("Computer Won the Season!");
+        updateStatus("Computer Won the Game!");
         disablePlayButtons();
     }
 }
