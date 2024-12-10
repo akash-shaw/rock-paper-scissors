@@ -1,7 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
-let timeoutID;
+let timeoutID;  // status timeout to avoid overlap
 
+// preloading audio files
 const audioFiles = [
     "media/switchon.mp3",
     "media/switchoff.mp3",
@@ -10,13 +11,12 @@ const audioFiles = [
     "media/win.mp3",
     "media/lose.mp3"
 ];
-
 audioFiles.forEach((file) => {
     const audio = new Audio(file);
     audio.preload = "auto";
 });
 
-
+// updating initial score to 0 and status to default param
 updateScore();
 updateStatus();
 
@@ -26,7 +26,7 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
-
+// game algo, helper to playGame()
 function playRound(humanChoice, computerChoice) {
     let isHumanWinner;
     if (computerChoice == humanChoice) {
@@ -59,6 +59,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+//play one single round
 function playGame(humanChoice) {
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
@@ -66,28 +67,32 @@ function playGame(humanChoice) {
     checkWinner();
 }
 
+//updates both variables and text
 function updateScore() {
     const humanResult = document.querySelector(".human-result span");
     const computerResult = document.querySelector(".computer-result span");
     humanResult.textContent = `${humanScore}`;
     computerResult.textContent = `${computerScore}`;
 }
-
+// updates status
 function updateStatus(message = "") {
     const statusBox = document.querySelector("#status");
 
+    //avoid overlap of two text typewriter
     if (timeoutID) {
         clearTimeout(timeoutID);
     }
 
+    //console feel
     statusBox.textContent = "> ";
     let i = 0;
 
+    //typewriting effect
     function typeWriter() {
         if (i < message.length) {
             statusBox.textContent += message[i];
             i++;
-            timeoutID = setTimeout(typeWriter, 25);
+            timeoutID = setTimeout(typeWriter, 25); //calculate timeout
         } else {
             timeoutID = null;
         }
@@ -96,6 +101,7 @@ function updateStatus(message = "") {
     typeWriter();
 }
 
+//checks whole season winner, if found disables buttons
 function checkWinner() {
     if (humanScore == 5) {
         const winAudio = new Audio("media/win.mp3");
@@ -120,6 +126,7 @@ function enablePlayButtons() {
     playButtons.forEach(button => button.disabled = false);
 }
 
+//resets the game
 function resetGame() {
     const resetAudio = new Audio("media/reset.mp3");
     resetAudio.play();
@@ -132,6 +139,7 @@ function resetGame() {
 const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", resetGame);
 
+//takes player input
 const playerButtons = document.querySelector("#btn-container");
 
 playerButtons.addEventListener("click", (e) => {
@@ -142,6 +150,7 @@ playerButtons.addEventListener("click", (e) => {
     }
 });
 
+//button press animation
 const buttons = document.querySelectorAll(".btn");
 
 buttons.forEach(button => {
@@ -153,7 +162,7 @@ buttons.forEach(button => {
     })
 })
 
-
+// power switch action and sound
 const powerSwitch = document.querySelector(".power-switch");
 powerSwitch.addEventListener("click", e => {
     const checkBox = document.querySelector("#switch");
@@ -170,10 +179,7 @@ powerSwitch.addEventListener("click", e => {
     }
 });
 
-
-
-
-
+//scale the .game according to window size
 function scaleGame() {
     const container = document.querySelector('.container');
     const game = document.querySelector('.game');
