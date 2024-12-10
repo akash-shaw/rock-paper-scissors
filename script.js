@@ -83,10 +83,14 @@ function updateStatus(message = "") {
 
 function checkWinner(){
     if(humanScore==5){
+        const winAudio = new Audio("media/win.mp3");
+        winAudio.play();
         updateStatus("You Won the Season!");
         disablePlayButtons();
     }
     else if(computerScore==5){
+        const loseAudio = new Audio("media/lose.mp3");
+        loseAudio.play();
         updateStatus("Computer Won the Season!");
         disablePlayButtons();
     }
@@ -102,6 +106,8 @@ function enablePlayButtons(){
 }
 
 function resetGame(){
+    const resetAudio = new Audio("media/reset.mp3");
+    resetAudio.play();
     enablePlayButtons();
     humanScore=0;
     computerScore=0;
@@ -115,6 +121,8 @@ const playerButtons = document.querySelector("#btn-container");
 
 playerButtons.addEventListener("click", (e)=>{
     if(e.target.tagName == "BUTTON"){
+        const buttonPress = new Audio("media/buttonpress.mp3");
+        buttonPress.play();
         playGame(e.target.id);
     }
 });
@@ -130,15 +138,21 @@ buttons.forEach(button=>{
     })
 })
 
-const powerSwitch = document.querySelector(".power-switch");
-const checkBox = document.querySelector("#switch");
-const powerLED = document.querySelector(".power-led");
-const switchSound = new Audio("media/switch.mp3");
 
+const powerSwitch = document.querySelector(".power-switch");
 powerSwitch.addEventListener("click", e=>{
+    const checkBox = document.querySelector("#switch");
+    const powerLED = document.querySelector(".power-led");
+    const switchOnSound = new Audio("media/switchon.mp3");
+    const switchOffSound = new Audio("media/switchoff.mp3");
     checkBox.checked = !checkBox.checked;
     powerLED.classList.toggle("off");
-    switchSound.play();
+    if(checkBox.checked){
+        switchOnSound.play();
+    }
+    else{
+        switchOffSound.play();
+    }
 });
 
 
