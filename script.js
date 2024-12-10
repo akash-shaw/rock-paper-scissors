@@ -2,6 +2,21 @@ let humanScore = 0;
 let computerScore = 0;
 let timeoutID;
 
+const audioFiles = [
+    "media/win.mp3",
+    "media/lose.mp3",
+    "media/reset.mp3",
+    "media/buttonpress.mp3",
+    "media/switchon.mp3",
+    "media/switchoff.mp3"
+];
+
+audioFiles.forEach((file) => {
+    const audio = new Audio(file);
+    audio.preload = "auto";
+});
+
+
 updateScore();
 updateStatus();
 
