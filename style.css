@@ -45,10 +45,10 @@
   left: 50px;
   z-index: 20;
   font-size: 100px;
-  color: rgba(255, 255, 177, 0.918);
-}
-.power-led.off{
   color: rgb(100, 96, 96);
+}
+.power-led.on{
+  color: rgba(255, 255, 177, 0.918);
 }
 
 /* @layer base, crt; */
