@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let timeoutID;
 
 updateScore();
 updateStatus();
@@ -57,9 +58,27 @@ function updateScore(){
     computerResult.textContent= `${computerScore}`;
 }
 
-function updateStatus(message=""){
+function updateStatus(message = "") {
     const statusBox = document.querySelector("#status");
-    statusBox.textContent = `> ${message}`;
+
+    if (timeoutID) {
+        clearTimeout(timeoutID);
+    }
+
+    statusBox.textContent = "> "; 
+    let i = 0;
+
+    function typeWriter() {
+        if (i < message.length) {
+            statusBox.textContent += message[i]; 
+            i++;
+            timeoutID = setTimeout(typeWriter, 25);
+        } else {
+            timeoutID = null;
+        }
+    }
+
+    typeWriter();
 }
 
 function checkWinner(){
