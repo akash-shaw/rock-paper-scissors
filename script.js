@@ -135,10 +135,10 @@ resetBtn.addEventListener("click", resetGame);
 const playerButtons = document.querySelector("#btn-container");
 
 playerButtons.addEventListener("click", (e)=>{
-    if(e.target.tagName == "BUTTON"){
+    if(e.target.tagName == "BUTTON" || e.target.tagName == "IMG"){
         const buttonPress = new Audio("media/buttonpress.mp3");
         buttonPress.play();
-        playGame(e.target.id);
+        playGame(e.target.classList[0]);
     }
 });
 
