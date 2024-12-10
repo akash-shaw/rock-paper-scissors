@@ -157,7 +157,7 @@ body {
 }
 
 #switch:checked ~ .container .overlay {
-  animation: overlay-anim 5s linear;
+  animation: overlay-anim 3s linear;
   animation-fill-mode: forwards;
 }
 
