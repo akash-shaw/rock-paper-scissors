@@ -120,10 +120,14 @@ function checkWinner() {
 function disablePlayButtons() {
     const playButtons = document.querySelectorAll("#btn-container button");
     playButtons.forEach(button => button.disabled = true);
+    const buttonImages = document.querySelectorAll(".choice-btn img");
+    buttonImages.forEach(buttonImage => buttonImage.style.opacity = "25%");
 }
 function enablePlayButtons() {
     const playButtons = document.querySelectorAll("#btn-container button");
     playButtons.forEach(button => button.disabled = false);
+    const buttonImages = document.querySelectorAll(".choice-btn img");
+    buttonImages.forEach(buttonImage => buttonImage.style.opacity = "100%");
 }
 
 //resets the game
