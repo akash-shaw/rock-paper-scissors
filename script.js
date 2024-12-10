@@ -3,12 +3,12 @@ let computerScore = 0;
 let timeoutID;
 
 const audioFiles = [
-    "media/win.mp3",
-    "media/lose.mp3",
-    "media/reset.mp3",
-    "media/buttonpress.mp3",
     "media/switchon.mp3",
-    "media/switchoff.mp3"
+    "media/switchoff.mp3",
+    "media/buttonpress.mp3",
+    "media/reset.mp3",
+    "media/win.mp3",
+    "media/lose.mp3"
 ];
 
 audioFiles.forEach((file) => {
@@ -161,7 +161,7 @@ powerSwitch.addEventListener("click", e=>{
     const switchOnSound = new Audio("media/switchon.mp3");
     const switchOffSound = new Audio("media/switchoff.mp3");
     checkBox.checked = !checkBox.checked;
-    powerLED.classList.toggle("on");
+    powerLED.classList.toggle("off");
     if(checkBox.checked){
         switchOnSound.play();
     }
