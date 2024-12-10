@@ -131,13 +131,14 @@ buttons.forEach(button=>{
 })
 
 const powerSwitch = document.querySelector(".power-switch");
+const checkBox = document.querySelector("#switch");
+const powerLED = document.querySelector(".power-led");
+const switchSound = new Audio("media/switch.mp3");
 
 powerSwitch.addEventListener("click", e=>{
-    const checkBox = document.querySelector("#switch");
     checkBox.checked = !checkBox.checked;
-
-    const powerLED = document.querySelector(".power-led");
     powerLED.classList.toggle("off");
+    switchSound.play();
 });
 
 
