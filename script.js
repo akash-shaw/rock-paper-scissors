@@ -138,10 +138,10 @@ function scaleGame() {
     overlay.style.cssText = `font-size: ${window.innerHeight*(20/591)}px; top: ${window.innerHeight*(20/591)}px; left: ${window.innerHeight*(20/591)}px`;
 
     const powerSwitch = document.querySelector(".power-switch");
-    powerSwitch.style.cssText = `font-size: ${window.innerHeight*(40/591)}px; top: ${window.innerHeight*(20/591)}px; left: ${window.innerHeight*(20/591)}px`;
-
+    powerSwitch.style.cssText = `font-size: ${window.innerHeight*(20/591)}px; top: ${window.innerHeight*(350/591)}px; left: ${(window.innerWidth/2) + (window.innerHeight*(125/591))}px`;
 }
  // Scale game on page load 
  window.addEventListener('load', scaleGame); 
  // Scale game whenever the window is 
  window.addEventListener('resize', scaleGame);
+
