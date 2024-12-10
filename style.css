@@ -86,7 +86,7 @@
     animation: textflicker 150ms infinite alternate;
   }
 
-  .container::before {
+  #switch:checked ~ .container::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -127,7 +127,7 @@
     pointer-events: none;
   }
 
-  .container::after {
+  #switch:checked ~ .container::after {
     animation: flicker 0.15s infinite;
   }
 
