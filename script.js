@@ -154,18 +154,6 @@ playerButtons.addEventListener("click", (e) => {
     }
 });
 
-//button press animation
-const buttons = document.querySelectorAll(".btn");
-
-buttons.forEach(button => {
-    button.addEventListener("mousedown", e => {
-        button.style.cssText = "transform: scale(0.9);"
-    })
-    button.addEventListener("mouseup", e => {
-        button.style.cssText = "transform: scale(1);"
-    })
-})
-
 // power switch action and sound
 const powerSwitch = document.querySelector(".power-switch");
 powerSwitch.addEventListener("click", e => {
